@@ -297,14 +297,14 @@
 			elseif ( !in_array( $fileValid[ 'type' ], $typeValid ) )
 				throw new InputValidatorExceptions(
 					INVALID_UPLOAD_DEGREE_TITLE,
-					INVALID_DEC_DEGREE_MESSAGE,
+					$fileUploadErrors[ UPLOAD_ERR_EXTENSION ],
 					UPLOAD_ERR_EXTENSION
 				);
 
 			elseif ( $fileValid[ 'size' ] > $sizeValid )
 				throw new InputValidatorExceptions(
 					INVALID_UPLOAD_DEGREE_TITLE,
-					INVALID_DEC_DEGREE_MESSAGE,
+					$fileUploadErrors[ UPLOAD_ERR_FORM_SIZE ],
 					UPLOAD_ERR_FORM_SIZE
 				);
 
