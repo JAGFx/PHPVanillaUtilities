@@ -113,6 +113,25 @@
 		}
 
 		/**
+		 * @param $array
+		 *
+		 * @return array
+		 * @throws InputValidatorExceptions
+		 */
+		public function &validateArray( &$array ) {
+			$conformity = $this->checkConformity( $array );
+
+			if ( !is_array( $conformity ) )
+				throw new InputValidatorExceptions(
+					INVALID_ARRAY_TITLE,
+					INVALID_ARRAY_MESSAGE,
+					INVALID_ARRAY_CODE
+				);
+
+			return $conformity;
+		}
+
+		/**
 		 * @param $email
 		 *
 		 * @return string
@@ -224,5 +243,72 @@
 				);
 
 			return $conformity;
+		}
+
+		/**
+		 * @param float $decD
+		 *
+		 * @return float
+		 * @throws InputValidatorExceptions
+		 */
+		public function &validateDecimalDegree( &$decD ) {
+			$conformity = $this->checkConformity( $decD );
+
+			if ( !preg_match( REGEXP_DEC_DEGREE, $conformity ) )
+				throw new InputValidatorExceptions(
+					INVALID_DEC_DEGREE_TITLE,
+					INVALID_DEC_DEGREE_MESSAGE,
+					INVALID_DEC_DEGREE_CODE
+				);
+
+			return $conformity;
+		}
+
+		/**
+		 * @param string $file
+		 * @param array  $type
+		 * @param int    $size
+		 *
+		 * @return mixed
+		 * @throws InputValidatorExceptions
+		 */
+		public function &validateFileUploaded( &$file, array &$type, &$size ) {
+			$fileValid = $this->checkConformity( $file );
+			$typeValid = $this->validateArray( $type );
+			$sizeValid = $this->validateInt( $size );
+
+			$fileUploadErrors = array(
+				UPLOAD_ERR_INI_SIZE   => FU_ERR_INI_SIZE,
+				UPLOAD_ERR_FORM_SIZE  => FU_ERR_FORM_SIZE,
+				UPLOAD_ERR_PARTIAL    => FU_ERR_PARTIAL,
+				UPLOAD_ERR_NO_FILE    => FU_ERR_NO_FILE,
+				UPLOAD_ERR_NO_TMP_DIR => FU_ERR_NO_TMP_DIR,
+				UPLOAD_ERR_CANT_WRITE => FU_ERR_CANT_WRITE,
+				UPLOAD_ERR_EXTENSION  => FU_ERR_EXTENSION,
+			);
+
+			if ( $fileValid[ 'error' ] > UPLOAD_ERR_OK )
+				throw new InputValidatorExceptions(
+					INVALID_UPLOAD_DEGREE_TITLE,
+					$fileUploadErrors[ $fileValid[ 'error' ] ],
+					$fileValid[ 'error' ]
+				);
+
+			elseif ( !in_array( $fileValid[ 'type' ], $typeValid ) )
+				throw new InputValidatorExceptions(
+					INVALID_UPLOAD_DEGREE_TITLE,
+					INVALID_DEC_DEGREE_MESSAGE,
+					UPLOAD_ERR_EXTENSION
+				);
+
+			elseif ( $fileValid[ 'size' ] > $sizeValid )
+				throw new InputValidatorExceptions(
+					INVALID_UPLOAD_DEGREE_TITLE,
+					INVALID_DEC_DEGREE_MESSAGE,
+					UPLOAD_ERR_FORM_SIZE
+				);
+
+
+			return $fileValid;
 		}
 	}

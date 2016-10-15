@@ -26,6 +26,10 @@
 	define( 'INVALID_STRING_MESSAGE', "La valeur n'est pas une chaine de caractères valide", true );
 	define( 'INVALID_STRING_CODE', 4, true );
 
+	define( 'INVALID_ARRAY_TITLE', "Tableau non valide", true );
+	define( 'INVALID_ARRAY_MESSAGE', "La valeur n'est pas un tableau valide", true );
+	define( 'INVALID_ARRAY_CODE', 12, true );
+
 	define( 'INVALID_EMAIL_TITLE', "Email non valide", true );
 	define( 'INVALID_EMAIL_MESSAGE', "La valeur n'est pas un email valide", true );
 	define( 'INVALID_EMAIL_CODE', 5, true );
@@ -50,3 +54,17 @@
 	define( 'INVALID_MAC_TITLE', "Adresse MAC non valide", true );
 	define( 'INVALID_MAC_MESSAGE', "La valeur n'est pas une adresse MAC valide", true );
 	define( 'INVALID_MAC_CODE', 10, true );
+
+	define( 'REGEXP_DEC_DEGREE', '/^\d{1,3}(\.\d*)?$/', true );
+	define( 'INVALID_DEC_DEGREE_TITLE', "Coordonnée en degrès décimal non valide", true );
+	define( 'INVALID_DEC_DEGREE_MESSAGE', "La valeur n'est pas une coordonnée en degrès décimal valide", true );
+	define( 'INVALID_DEC_DEGREE_CODE', 11, true );
+
+	define( 'INVALID_UPLOAD_DEGREE_TITLE', "Coordonnée en degrès décimal non valide", true );
+	define( 'FU_ERR_INI_SIZE', "La taille du fichier téléchargé excède la valeur configurée sur le serveur", true );
+	define( 'FU_ERR_FORM_SIZE', "La taille du fichier téléchargé excède la valeur maximal spécifiée dans le formulaire HTML", true );
+	define( 'FU_ERR_PARTIAL', "Le fichier n'a été que partiellement téléchargé", true );
+	define( 'FU_ERR_NO_FILE', "Aucun fichier n'a été téléchargé", true );
+	define( 'FU_ERR_NO_TMP_DIR', "Un dossier temporaire est manquant", true );
+	define( 'FU_ERR_CANT_WRITE', "Échec de l'écriture du fichier sur le disque", true );
+	define( 'FU_ERR_EXTENSION', "Extension non supporté", true );
