@@ -1,0 +1,20 @@
+{
+	"name":     "jagfx/input-validator",
+	"description": "Validation de valeur. Plus de condition qui s'empile !",
+	"minimum-stability" : "dev",
+	"require":  {
+		"php": ">=5.6"
+	},
+	"license":  "MIT",
+	"authors":  [
+		{
+			"name":  "JAGFx",
+			"email": "contact@jagfx.fr"
+		}
+	],
+	"autoload": {
+		"psr-0": {
+			"InputValidator": "src/"
+		}
+	}
+}

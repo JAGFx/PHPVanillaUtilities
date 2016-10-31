@@ -1,0 +1,28 @@
+{
+	"name":        "InputValidator",
+	"homepage":    "https://github.com/JAGFx/InputValidator",
+	"authors":     [
+		"JAGFx <contact@jagfx.fr> http://www.jagfx.fr"
+	],
+	"description": "Validation de valeur. Plus de condition qui s'empile !",
+	"main":        "dist/InputValidator.php",
+	"repository":   {
+		"type": "git",
+		"url":  "https://github.com/JAGFx/InputValidator.git"
+	},
+	"keywords":    [
+		"input",
+		"validator",
+		"form",
+		"values",
+		"checker"
+	],
+	"license":     "MIT",
+	"ignore":      [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	]
+}
